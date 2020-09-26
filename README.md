@@ -1,26 +1,17 @@
----
-output: github_document
----
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
-)
-```
 
 # mongotools
 
 <!-- badges: start -->
+
 <!-- badges: end -->
 
-The goal of mongotools Rpackage is to provides some functions which may be useful when working with MongoDB and Rpackages related to it. For now it has one function:
+The goal of mongotools Rpackage is to provides some functions which may
+be useful when working with MongoDB and Rpackages related to it. For now
+it has one function:
 
-* mongoid2date: Get timestamp from MongoDB ID inside Rstudio.
+  - mongoid2date: Get timestamp from MongoDB ID inside Rstudio.
 
 ## Installation
 
@@ -30,20 +21,21 @@ The development version from [GitHub](https://github.com/) with:
 # install.packages("devtools")
 devtools::install_github("bakeevdias/mongotools")
 ```
+
 ## Example
 
-Example code of function mongoid2date which extracts timestamp from MongoDB ObjectId(s).
+Example code of function mongoid2date which extracts timestamp from
+MongoDB ObjectId(s).
 
-```{r example}
+``` r
 library(mongotools)
 
 #single id
 mongoid2date("5f1697fa3aa7a77b2323cada")
+#> [1] "2020-07-21 09:23:38 CEST"
 
 #multiple ids
 id <- c("5f1697fa3aa7a77b2323cada","5f6e917c043012678d27e3f4","5f6e917c043012678d27e3f5")
 df <- data.frame(id)
 df$dates <- mongoid2date(df$id)
 ```
-
-
